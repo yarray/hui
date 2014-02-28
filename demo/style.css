@@ -3,6 +3,7 @@ body {
     margin: auto;
 
     /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-family: "Times New Roman", serif;
     color: #666666;
 }
 
@@ -31,7 +32,15 @@ h1:before {
     vertical-align: top;
 }
 
-.cases >div:not(:first-child) {
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { -webkit-box-shadow: inset 6px rgba(0,0,0,0.3); }
+::-webkit-scrollbar-thumb { background: #c6c6c6; }
+
+.cases > div {
+    position: relative;
+}
+
+.cases > div:not(:first-child) {
     margin-top: 60px;
 }
 
@@ -48,6 +57,8 @@ h1:before {
     -moz-transition: border .3s ease;
     -o-transition: border .3s ease;
     transition: border .3s ease;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .cases .actions button:hover {
@@ -134,4 +145,16 @@ h1:before {
 .context .small {
     width: 25px;
     height: 25px;
+}
+
+.grid-container {
+    height: 600px;
+    width: 680px;
+    overflow-y: auto;
+    overflow-x: visible;
+    position: absolute;
+}
+
+.grid-details {
+    height: 300px;
 }

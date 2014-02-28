@@ -3,6 +3,12 @@
   -moz-border-radius: 9999px;
   border-radius: 9999px;
 }
+.tag-list {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.tag-list a {
+  text-decoration: none;
+}
 .tag-list select,
 .tag-list input,
 .tag-list textarea {
@@ -33,7 +39,6 @@
 .tag-list textarea {
   padding: 4px 6px;
   font-size: 14px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
 }
 .tag-list label,
@@ -44,6 +49,32 @@
   font-size: 14px;
   font-weight: normal;
   line-height: 20px;
+}
+.tag-list label {
+  display: block;
+}
+.tag-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+.tag-list .well {
+  float: none;
+  padding: 20px;
+  margin: 0;
+  background-color: #f2f2f2;
+  border: 1px #dedede solid;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.tag-list .no-trans {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
 .tag-list button {
   margin-right: 5px;

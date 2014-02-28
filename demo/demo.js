@@ -1,6 +1,7 @@
 angular.module('app', [
         'higis.hui.tagList',
-        'higis.hui.contextCircle'
+        'higis.hui.contextCircle',
+        'higis.hui.thumbGrid'
     ])
     .controller('DemoCtrl', function ($scope) {
         'use strict';
@@ -14,4 +15,35 @@ angular.module('app', [
                 }
             }
         };
+
+        var selectedGridItem = -1;
+        var list = [
+            { name: 'red' },
+            { name: 'green' },
+            { name: 'blue' },
+            { name: 'red' },
+            { name: 'red' },
+            { name: 'green' },
+            { name: 'blue' },
+            { name: 'green' },
+            { name: 'blue' }
+        ];
+        $scope.grid = {
+            name: function (obj) {
+                return obj.name;
+            },
+            thumbnailUrl: function (obj) {
+                return 'images/red.png';
+            },
+            data: function () {
+                return list;
+            },
+            select: function (value) {
+                selectedGridItem = value;
+            },
+            selected: function () {
+                return selectedGridItem;
+            },
+            height: 200
+        }
     });

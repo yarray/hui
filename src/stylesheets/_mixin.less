@@ -30,16 +30,16 @@
 
 .scale(@ratio) {
   -webkit-transform: scale(@ratio);
-     -moz-transform: scale(@ratio);
-      -ms-transform: scale(@ratio);
-       -o-transform: scale(@ratio);
-          transform: scale(@ratio);
+  -moz-transform: scale(@ratio);
+  -ms-transform: scale(@ratio);
+  -o-transform: scale(@ratio);
+  transform: scale(@ratio);
 }
 
 .box-sizing(@boxmodel) {
   -webkit-box-sizing: @boxmodel;
-     -moz-box-sizing: @boxmodel;
-          box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
 }
 
 .icon-switch() {
@@ -96,6 +96,12 @@
 }
 
 .common() {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  a {
+    text-decoration: none;
+  }
+
   select, input, textarea {
     .border-radius(0);
     outline: 0;
@@ -114,7 +120,6 @@
   input, button, select, textarea {
     padding: 4px 6px;
     font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0;
   }
 
@@ -122,5 +127,28 @@
     font-size: 14px;
     font-weight: normal;
     line-height: 20px;
+  }
+
+  label {
+    display: block;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .well {
+    float: none;
+    padding: @imageGutter;
+    margin: 0;
+    background-color: @lightBackColor;
+    border: @lightBorder;
+    .box-shadow(none);
+    .border-radius(0);
+  }
+
+  .no-trans {
+    .transition(none) !important;
   }
 }
