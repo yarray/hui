@@ -1,0 +1,55 @@
+.circle {
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  border-radius: 9999px;
+}
+.h-button-main {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  min-height: 29px;
+  color: #fbfbfb;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+  background-color: #095aa5;
+}
+.h-button-main:hover {
+  background-color: #5a6e8a;
+}
+.h-button-misc {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  min-height: 29px;
+  color: #666666;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+  background-color: #fbfbfb;
+}
+.h-button-misc:hover {
+  background-color: #fffdec;
+}
+.h-button-trans {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  min-height: 29px;
+  background-color: transparent;
+  color: #666666;
+  border: 1px #dedede solid;
+  -webkit-transition: border 0.3s ease;
+  -moz-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+.h-button-trans:hover {
+  color: #000000;
+  border: 1px #c6c6c6 solid;
+}

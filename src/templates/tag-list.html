@@ -1,0 +1,17 @@
+<div class="tag-list">
+    <div class="selected">
+        <button class="h-button-tag" ng-repeat="tag in selected" ng-click="closeTag(tag)">
+            {{tag}}
+        </button>
+    </div>
+    <div class="all">
+        <div>
+            <input type="text" ng-model="query"/>
+        </div>
+
+        <button ng-repeat="tag in all | filter: query"
+                ng-click="toggleTag(tag)" ng-class="{'h-button-tag': true, 'selected-btn': isSelected(tag)}">
+            {{tag}}
+        </button>
+    </div>
+</div>

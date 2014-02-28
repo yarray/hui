@@ -1,0 +1,103 @@
+@import "_variables";
+
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+.icon-switch() {
+  opacity: .5;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// input whose position is stable whether it is shown or hidden.
+.stable-input(@container-height, @border:1px) {
+  margin: (@container-height - 26px) / 2 0 (@container-height - 26px) / 2 (-2) * @border;
+}
+
+.block-border() {
+  border: @lightBorder;
+}
+
+.operation-panel(@radius: 6px) {
+  background: @contrastSecondColor;
+  padding: 15px 0;
+  .block-border();
+}
+
+.info-panel(@radius: 6px) {
+  @fore-color: #ffffff;
+
+  background: @fore-color;
+  .block-border();
+}
+
+.selected() {
+  border: 3px solid @mainColor;
+}
+
+.hoverable(@color: @mainColor, @hoverColor: @secondColor) {
+  .transition(background-color 0.2s ease);
+  background-color: @color;
+
+  &:hover {
+    background-color: @hoverColor;
+  }
+}
+
+.transform-origin(@origin) {
+  -webkit-transform-origin: @origin;
+  -moz-transform-origin: @origin;
+  transform-origin: @origin;
+}
+
+.circle {
+  .border-radius(9999px);
+}
+
+.common() {
+  select, input, textarea {
+    .border-radius(0);
+    outline: 0;
+    .transition(border linear 0.2s);
+  }
+
+  input[type="text"], textarea {
+    border: @lightBorder;
+    background-color: transparent;
+    .box-shadow(none);
+    &:focus {
+      border: #777777 1px solid;
+    }
+  }
+
+  input, button, select, textarea {
+    padding: 4px 6px;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+  }
+
+  label, input, button, select, textarea {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+  }
+}

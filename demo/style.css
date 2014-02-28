@@ -1,0 +1,98 @@
+body {
+    width: 800px;
+    margin: auto;
+
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    color: #666666;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 60px;
+    color: #000;
+    color: rgb(42, 207, 238);
+    display: inline-block;
+}
+
+h1:before {
+    content: '';
+    display: inline-block;
+    left: 0;
+    right: 0;
+    top: 25px;
+    bottom: -10px;
+    border: rgb(42, 207, 238) 1px solid;
+    background: rgba(42, 207, 238, .2);
+    z-index: -1;
+    width: 40px;
+    height: 40px;
+    margin-top: 3px;
+    margin-right: 20px;
+    vertical-align: top;
+}
+
+.cases .actions button {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    min-height: 29px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(102, 102, 102);
+    border: 1px rgb(222, 222, 222) solid;
+    -webkit-transition: border .3s ease;
+    -moz-transition: border .3s ease;
+    -o-transition: border .3s ease;
+    transition: border .3s ease;
+}
+
+.cases .actions button:hover {
+    border: 1px rgb(42, 207, 238) solid;
+}
+
+.cases .actions, .events {
+    margin-top: 60px;
+    padding: 0;
+    height: 150px;
+    display: inline-block;
+}
+
+.cases .actions {
+    border-right: #c6c6c6 1px solid;
+    width: 30%;
+    float: left;
+}
+
+.cases .actions:before, .events:before {
+    font-weight: lighter;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #c6c6c6;
+    width: 100%;
+    display: block;
+}
+
+.cases .actions:before {
+    content: 'Actions';
+}
+
+.cases .events:before {
+    content: 'Events';
+}
+
+.cases .actions > button {
+    margin-left: 0;
+    height: 40px;
+    width: 60px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cases .events {
+    width: 60%;
+    float: right;
+}
+
+.cases .events span {
+    padding-left: 2px;
+}
