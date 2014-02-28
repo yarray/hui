@@ -91,7 +91,7 @@ h1:before {
     content: 'Actions';
 }
 
-.cases .actions > button {
+.cases .actions button {
     margin-left: 0;
     height: 40px;
     width: 60px;
@@ -152,9 +152,25 @@ h1:before {
     width: 680px;
     overflow-y: auto;
     overflow-x: visible;
-    position: absolute;
+    /* must be relative or absolute */
+    position: relative;
+    left: -10px;
+    padding-left: 10px;
 }
 
-.grid-details {
-    height: 300px;
+.grid-details span {
+    margin-left: 260px;
+    margin-top: 90px;
+    color: #999999;
+    display: block;
+}
+
+.actions.grid > div {
+    width: 150px;
+}
+
+.actions.grid button {
+    width: 40px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }

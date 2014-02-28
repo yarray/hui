@@ -19,31 +19,44 @@ angular.module('app', [
         var selectedGridItem = -1;
         var list = [
             { name: 'red' },
-            { name: 'green' },
+            { name: 'grey' },
             { name: 'blue' },
             { name: 'red' },
             { name: 'red' },
-            { name: 'green' },
+            { name: 'grey' },
             { name: 'blue' },
-            { name: 'green' },
+            { name: 'grey' },
             { name: 'blue' }
         ];
         $scope.grid = {
-            name: function (obj) {
-                return obj.name;
+            model: {
+                name: function (obj) {
+                    return obj.name;
+                },
+                thumbnailUrl: function (obj) {
+                    return 'images/' + obj.name + '.png';
+                },
+                data: function () {
+                    return list;
+                },
+                select: function (value) {
+                    if (selectedGridItem !== value) {
+                        selectedGridItem = value;
+                    } else {
+                        selectedGridItem = -1;
+                    }
+                },
+                selected: function () {
+                    return selectedGridItem;
+                },
+                height: 200
             },
-            thumbnailUrl: function (obj) {
-                return 'images/red.png';
-            },
-            data: function () {
-                return list;
-            },
-            select: function (value) {
-                selectedGridItem = value;
-            },
-            selected: function () {
-                return selectedGridItem;
-            },
-            height: 200
+            msg: function() {
+                if (selectedGridItem < 0) {
+                    return ''
+                } else {
+                    return selectedGridItem + 1 + ' is expanded';
+                }
+            }
         }
     });

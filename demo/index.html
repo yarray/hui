@@ -51,8 +51,17 @@
         <h1>Thumbnail Grid</h1>
 
         <div class="grid-container">
-            <div class="og-grid" thumb-grid partial="'partials/grid-details.html'" grid="grid">
+            <div class="og-grid" thumb-grid partial="'partials/grid-details.html'" grid="grid.model">
             </div>
+        </div>
+        <div class="actions grid">
+            <div>
+                <button ng-repeat="(i, obj) in grid.model.data()" ng-click="grid.model.select(i)">{{i+1}}</button>
+            </div>
+        </div>
+
+        <div class="events">
+            <span>{{grid.msg()}}</span>
         </div>
     </div>
 </div>

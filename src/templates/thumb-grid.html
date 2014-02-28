@@ -1,4 +1,5 @@
 <ul>
+    <!--TODO why not wrapped by a relative div?-->
     <li ng-repeat="obj in grid.data()" thumb-grid-content>
         <a href="" class="og-grid-thumb" ng-click="thumbClick()">
             <div ng-class="{well: true, selected: $index == current.index}">

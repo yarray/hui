@@ -11,7 +11,7 @@ angular.module('higis.hui.thumbGrid', ['higis.hui.config', 'higis.hui.utils']).d
         link: function (scope, element) {
             var offset = 0;
 
-            scope.current = { index: -1 };
+            scope.current = { };
             scope.height = scope.grid.height;
 
             function scrollToItem(item, time) {
@@ -21,14 +21,14 @@ angular.module('higis.hui.thumbGrid', ['higis.hui.config', 'higis.hui.utils']).d
 
             scope.setCurrent = function (current) {
                 // 1. close
-                if (current.index < 0) {
+                if (current.handler === undefined) {
                     if (scope.current.element) {
                         scope.current.handler.shrink();
                     }
                 }
                 else {
                     // 2. open && no opened
-                    if (scope.current.index < 0) {
+                    if (scope.current.handler === undefined) {
                         // simply expand then scroll to element
                         current.handler.expand();
                         scrollToItem(current);
@@ -76,118 +76,114 @@ angular.module('higis.hui.thumbGrid', ['higis.hui.config', 'higis.hui.utils']).d
                 scope.current = current;
             };
 
+            // TODO should be able to toggle; grid.selected() will not be correct if select is triggered not from grid.select()
             scope.$watch(scope.grid.selected, function () {
+                if (scope.grid.selected() < 0) {
+                    scope.setCurrent({});
+                }
                 scope.$broadcast('open', scope.grid.selected());
             });
 
             scope.contentReady = function () {
                 var expander = $('>li .og-expander', element);
                 offset = scope.height + parseInt(expander.css('marginTop'), 10) + parseInt(expander.css('marginBottom'), 10);
-                scope.current = { index: -1 };
+                scope.current = { };
+                scope.grid.select(-1);
             };
         },
         templateUrl: Config.root + 'templates/thumb-grid.html'
     };
 })
-.directive('thumbGridContent', function ($timeout, Utils) {
-    return {
-        restrict: 'EA',
-        link: function (scope, element) {
-            var expander = $('.og-expander', element);
-            var offset = scope.height + parseInt(expander.css('marginTop'), 10) + parseInt(expander.css('marginBottom'), 10);
-            var marginBottom = parseInt(element.css('marginBottom'), 10);
+    .directive('thumbGridContent', function ($timeout, Utils) {
+        return {
+            restrict: 'EA',
+            link: function (scope, element) {
+                var expander = $('.og-expander', element);
+                var offset = scope.height + parseInt(expander.css('marginTop'), 10) + parseInt(expander.css('marginBottom'), 10);
+                var marginBottom = parseInt(element.css('marginBottom'), 10);
 
-            // TODO it is strange that the event is triggered in details page, think about injecting it here
-            var selected = function () {
-            };
-            scope.onSelected = function (handler) {
-                selected = handler;
-            };
+                // TODO it is strange that the event is triggered in details page, think about injecting it here
+                var selected = function () {
+                };
+                scope.onSelected = function (handler) {
+                    selected = handler;
+                };
 
-            // I have thought about fill all items into parent scope, but it is
-            // difficult to determine when to clear the the items after data reloads
-            scope.$on('open', function (e, index) {
-                if (scope.$index === index) {
-                    scope.open();
-                }
-            });
+                // I have thought about fill all items into parent scope, but it is
+                // difficult to determine when to clear the the items after data reloads
+                scope.$on('open', function (e, index) {
+                    if (scope.$index === index) {
+                        scope.open();
+                    }
+                });
 
-            scope.$watch('$last', function () {
-                if (scope.$last) {
-                    scope.contentReady();
-                }
-            });
+                scope.$watch('$last', function () {
+                    if (scope.$last) {
+                        scope.contentReady();
+                    }
+                });
 
-            var handler = {
-                expand: function (instant, afterExpanded) {
-                    element.addClass('og-expanded');
-                    expander.addClass('expanded');
+                var handler = {
+                    expand: function (instant, afterExpanded) {
+                        element.addClass('og-expanded');
+                        expander.addClass('expanded');
 
-                    if (instant) {
-                        Utils.withoutTransition(expander, function () {
+                        if (instant) {
+                            Utils.withoutTransition(expander, function () {
+                                expander.height(scope.height);
+                            });
+
+                            Utils.withoutTransition(element, function () {
+                                element.css('marginBottom', marginBottom + offset);
+                            });
+
+                            scope.partialNow = scope.partial;
+                        } else {
+                            expander.on(Utils.transitionEnd(), function () {
+                                if (afterExpanded) {
+                                    afterExpanded();
+                                }
+
+                                // Here I use $timeout and 20ms delay to put the data loading to background, in order to
+                                // reduce the possibility that the data loading work intercepts the re-rendering triggered
+                                // by afterExpanded()
+                                $timeout(function () {
+                                    scope.partialNow = scope.partial;
+                                }, 20);
+                                expander.off(Utils.transitionEnd());
+                            });
+
                             expander.height(scope.height);
-                        });
-
-                        Utils.withoutTransition(element, function () {
                             element.css('marginBottom', marginBottom + offset);
-                        });
+                        }
+                    },
 
-                        scope.partialNow = scope.partial;
-                    } else {
-                        expander.on(Utils.transitionEnd(), function () {
-                            if (afterExpanded) {
-                                afterExpanded();
-                            }
+                    shrink: function (instant) {
+                        expander.removeClass('expanded');
+                        element.removeClass('og-expanded');
+                        if (instant) {
+                            Utils.withoutTransition(expander, function () {
+                                expander.height(0);
+                            });
 
-                            // Here I use $timeout and 20ms delay to put the data loading to background, in order to
-                            // reduce the possibility that the data loading work intercepts the re-rendering triggered
-                            // by afterExpanded()
-                            $timeout(function () {
-                                scope.partialNow = scope.partial;
-                            }, 20);
-                            expander.off(Utils.transitionEnd());
-                        });
+                            Utils.withoutTransition(element, function () {
+                                element.css('marginBottom', marginBottom);
+                            });
 
-                        expander.height(scope.height);
-                        element.css('marginBottom', marginBottom + offset);
-                    }
-                },
-
-                shrink: function (instant) {
-                    expander.removeClass('expanded');
-                    element.removeClass('og-expanded');
-                    if (instant) {
-                        Utils.withoutTransition(expander, function () {
-                            expander.height(0);
-                        });
-
-                        Utils.withoutTransition(element, function () {
+                        } else {
                             element.css('marginBottom', marginBottom);
-                        });
-
-                    } else {
-                        element.css('marginBottom', marginBottom);
-                        expander.height(0);
+                            expander.height(0);
+                        }
                     }
-                }
-            };
+                };
 
-            scope.close = function () {
-                scope.setCurrent({index: -1});
-            };
+                scope.open = function () {
+                    scope.setCurrent({ handler: handler, element: element });
+                };
 
-            scope.open = function () {
-                selected();
-                scope.setCurrent({index: scope.$index, handler: handler, element: element});
-            };
-
-            scope.thumbClick = function () {
-                if (scope.current.index === scope.$index) {
-                    scope.close();
-                } else {
-                    scope.open();
+                scope.thumbClick = function () {
+                    scope.grid.select(scope.$index);
                 }
             }
-        }
-    };
-});
+        };
+    });
