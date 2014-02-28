@@ -34,7 +34,7 @@ h1:before {
 
 ::-webkit-scrollbar { width: 12px; }
 ::-webkit-scrollbar-track { -webkit-box-shadow: inset 6px rgba(0,0,0,0.3); }
-::-webkit-scrollbar-thumb { background: #c6c6c6; }
+::-webkit-scrollbar-thumb { background: #dedede; }
 
 .cases > div {
     position: relative;
@@ -68,7 +68,7 @@ h1:before {
 .cases .actions, .events {
     margin-top: 60px;
     padding: 0;
-    height: 150px;
+    min-height: 150px;
     display: inline-block;
     vertical-align: top;
 }
@@ -147,14 +147,19 @@ h1:before {
     height: 25px;
 }
 
-.grid-container {
+.container {
+    border-top: #c6c6c6 1px solid;
+    border-bottom: #c6c6c6 1px solid;
+    overflow-y: auto;
+}
+
+.container:not(:hover)::-webkit-scrollbar-thumb { background: #f2f2f2; }
+
+.grid .container {
     height: 600px;
     width: 680px;
-    overflow-y: auto;
-    overflow-x: visible;
     /* must be relative or absolute */
     position: relative;
-    left: -10px;
     padding-left: 10px;
 }
 
@@ -165,11 +170,11 @@ h1:before {
     display: block;
 }
 
-.actions.grid > div {
+.grid .actions > div {
     width: 150px;
 }
 
-.actions.grid button {
+.grid .actions button {
     width: 40px;
     margin-right: 5px;
     margin-bottom: 5px;

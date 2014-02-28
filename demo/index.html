@@ -47,14 +47,14 @@
         </div>
     </div>
 
-    <div>
+    <div class="grid">
         <h1>Thumbnail Grid</h1>
 
-        <div class="grid-container">
+        <div class="container">
             <div class="og-grid" thumb-grid partial="'partials/grid-details.html'" grid="grid.model">
             </div>
         </div>
-        <div class="actions grid">
+        <div class="actions">
             <div>
                 <button ng-repeat="(i, obj) in grid.model.data()" ng-click="grid.model.select(i)">{{i+1}}</button>
             </div>

@@ -2,7 +2,7 @@
     <!--TODO why not wrapped by a relative div?-->
     <li ng-repeat="obj in grid.data()" thumb-grid-content>
         <a href="" class="og-grid-thumb" ng-click="thumbClick()">
-            <div ng-class="{well: true, selected: $index == current.index}">
+            <div ng-class="{well: true, selected: $index == grid.selected()}">
                 <img src="" class="baseimg" ng-src="{{grid.thumbnailUrl(obj)}}" title="{{grid.name(obj)}}">
                 <label title="{{grid.name(obj)}}">
                     {{grid.name(obj)}}
