@@ -5,12 +5,14 @@
     <title>Basic ui components for HiGIS (high performance GIS) by NUDT, China</title>
     <link rel="stylesheet" href="../src/stylesheets/dist/button.css"/>
     <link rel="stylesheet" href="../src/stylesheets/dist/tag-list.css"/>
+    <link rel="stylesheet" href="../src/stylesheets/dist/context-circle.css"/>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body ng-controller="DemoCtrl">
 <div class="cases">
     <div>
         <h1>Tag List</h1>
+
         <div tag-list tag-selected="tags.selected" tags="tags.data"
              tag-clear="tags.clear"></div>
 
@@ -22,6 +24,31 @@
             <span>{{tags.msg}}</span>
         </div>
     </div>
+
+    <div>
+        <h1>Context Circle</h1>
+
+        <div class="context-container">
+            <div context-circle class="context">
+                <div class="action"></div>
+                <div class="action"></div>
+                <div class="action"></div>
+            </div>
+        </div>
+        <div class="context-container">
+            <div context-circle class="context">
+                <div class="small action"></div>
+                <div class="small action"></div>
+                <div class="small action"></div>
+                <div class="small action"></div>
+                <div class="small action"></div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h1>Thumbnail Grid</h1>
+    </div>
 </div>
 
 <script src="lib/jquery.js" type="text/javascript"></script>
@@ -30,5 +57,6 @@
 <script src="demo.js" type="text/javascript"></script>
 <script src="../src/config.js" type="text/javascript"></script>
 <script src="../src/tag-list.js" type="text/javascript"></script>
+<script src="../src/context-circle.js" type="text/javascript"></script>
 </body>
 </html>

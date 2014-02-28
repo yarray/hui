@@ -1,5 +1,7 @@
 angular.module('app', [
-        'higis.hui.tagList'])
+        'higis.hui.tagList',
+        'higis.hui.contextCircle'
+    ])
     .controller('DemoCtrl', function ($scope) {
         'use strict';
         $scope.tags = {

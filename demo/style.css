@@ -11,7 +11,7 @@ h1 {
     margin-bottom: 60px;
     color: #000;
     color: rgb(42, 207, 238);
-    display: inline-block;
+    display: block;
 }
 
 h1:before {
@@ -29,6 +29,10 @@ h1:before {
     margin-top: 3px;
     margin-right: 20px;
     vertical-align: top;
+}
+
+.cases >div:not(:first-child) {
+    margin-top: 60px;
 }
 
 .cases .actions button {
@@ -55,12 +59,12 @@ h1:before {
     padding: 0;
     height: 150px;
     display: inline-block;
+    vertical-align: top;
 }
 
 .cases .actions {
     border-right: #c6c6c6 1px solid;
     width: 30%;
-    float: left;
 }
 
 .cases .actions:before, .events:before {
@@ -76,10 +80,6 @@ h1:before {
     content: 'Actions';
 }
 
-.cases .events:before {
-    content: 'Events';
-}
-
 .cases .actions > button {
     margin-left: 0;
     height: 40px;
@@ -89,10 +89,49 @@ h1:before {
 }
 
 .cases .events {
-    width: 60%;
-    float: right;
+    margin-left: 50px;
+}
+
+.cases .events:before {
+    content: 'Events';
 }
 
 .cases .events span {
     padding-left: 2px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* controls */
+
+.context {
+    display: inline-block;
+    /* size and position when expanded */
+    width: 300px;
+    height: 300px;
+    margin-top: -50px;
+    margin-left: 0;
+}
+
+.context-container {
+    width: 350px;
+    height: 250px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.context .toggle.expanded {
+    background-color: #fffdec;
+    border: #c6c6c6 1px solid;
+}
+
+.context .action {
+    width: 50px;
+    height: 50px;
+
+    border: rgb(42, 207, 238) 1px solid;
+}
+
+.context .small {
+    width: 25px;
+    height: 25px;
 }

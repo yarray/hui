@@ -1,5 +1,6 @@
 @import "_variables";
 
+// Borrow from Twitter/bootstrap
 .box-shadow(@shadow) {
   -webkit-box-shadow: @shadow;
   -moz-box-shadow: @shadow;
@@ -17,6 +18,28 @@
   -moz-transition: @transition;
   -o-transition: @transition;
   transition: @transition;
+}
+
+.user-select(@select) {
+  -webkit-user-select: @select;
+  -moz-user-select: @select;
+  -ms-user-select: @select;
+  -o-user-select: @select;
+  user-select: @select;
+}
+
+.scale(@ratio) {
+  -webkit-transform: scale(@ratio);
+     -moz-transform: scale(@ratio);
+      -ms-transform: scale(@ratio);
+       -o-transform: scale(@ratio);
+          transform: scale(@ratio);
+}
+
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+     -moz-box-sizing: @boxmodel;
+          box-sizing: @boxmodel;
 }
 
 .icon-switch() {
