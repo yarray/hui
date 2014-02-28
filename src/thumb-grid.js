@@ -76,7 +76,6 @@ angular.module('higis.hui.thumbGrid', ['higis.hui.config', 'higis.hui.utils']).d
                 scope.current = current;
             };
 
-            // TODO should be able to toggle; grid.selected() will not be correct if select is triggered not from grid.select()
             scope.$watch(scope.grid.selected, function () {
                 if (scope.grid.selected() < 0) {
                     scope.setCurrent({});
@@ -95,6 +94,7 @@ angular.module('higis.hui.thumbGrid', ['higis.hui.config', 'higis.hui.utils']).d
     };
 })
     .directive('thumbGridContent', function ($timeout, Utils) {
+        'use strict';
         return {
             restrict: 'EA',
             link: function (scope, element) {

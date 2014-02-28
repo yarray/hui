@@ -2,9 +2,6 @@
 angular.module('higis.hui.utils', []).service('Utils', function () {
     'use strict';
     return {
-        createFake: function (element) {
-            return element.clone().html('');
-        },
         transitionEnd: function () {
             var t;
             var el = document.createElement('fakeElement');
@@ -16,8 +13,10 @@ angular.module('higis.hui.utils', []).service('Utils', function () {
             };
 
             for (t in transitions) {
-                if (el.style[t] !== undefined) {
-                    return transitions[t];
+                if (transitions.hasOwnProperty(t)) {
+                    if (el.style[t] !== undefined) {
+                        return transitions[t];
+                    }
                 }
             }
 

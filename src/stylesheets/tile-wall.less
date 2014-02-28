@@ -1,0 +1,152 @@
+@import "_variables";
+@import "_mixin";
+
+.tile-wall {
+  .wall {
+
+  }
+  .common();
+  @aroundGutter: 10px;
+  @sideWidth: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  .wall {
+    position: absolute;
+    top: @aroundGutter;
+    bottom: @aroundGutter;
+    left: @aroundGutter;
+    right: @sideWidth + @aroundGutter;
+    > div {
+      position: absolute;
+      right: 0;
+      background-color: @foreColor;
+      .transition(~"height 0.5s ease, width 0.5s ease, top 0.5s ease, bottom 0.5s ease, left 0.5s ease, right 0.5s ease");
+      z-index: 11;
+      .user-select(none);
+      .box-shadow(@lightInnerBorder);
+      overflow: auto;
+
+      .close-button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 20px;
+        height: 20px;
+      }
+
+      &.min {
+        > * {
+          display: none;
+        }
+        padding: 0 !important;
+        .box-shadow(none);
+      }
+    }
+  }
+  .sidebar {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    vertical-align: middle;
+    width: @sideWidth;
+    height: 100%;
+    background: @foreColor;
+    z-index: 10;
+    border-left: @lightBorder;
+    border-top: @lightBorder;
+    //    .box-sizing(border-box);
+    .transition(height 0.75s ease);
+    .transition-delay(0.5s);
+
+    a {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: @sideWidth;
+      z-index: 0;
+      margin-top: 0;
+      :hover {
+        cursor: pointer;
+      }
+    }
+
+    a.toggle-min {
+      position: absolute;
+      right: 0;
+      bottom: @sideWidth;
+      border-top: @lightBorder;
+      border-bottom: @lightBorder;
+    }
+
+    > .tile-bar a {
+      border-bottom: @lightBorder;
+    }
+  }
+
+  &.horizon {
+    .wall {
+      bottom: @sideWidth + @aroundGutter;
+      right: @aroundGutter;
+      > div {
+        right: auto;
+        bottom: 0;
+      }
+    }
+
+    .sidebar {
+      @horizonWidth: 70%;
+      //      @space: (100% -  @horizonWidth);
+      right: 0;
+      width: @horizonWidth;
+      height: @sideWidth;
+      .transition(width 0.5s ease);
+      .transition-delay(0.5s);
+      a {
+        height: 100%;
+        width: @sideWidth;
+        display: inline-block;
+        border-right: @lightBorder;
+        border-bottom: none;
+      }
+
+      a.toggle-min {
+        position: absolute;
+        bottom: 0;
+        right: @sideWidth;
+        border-right: @lightBorder;
+        border-left: @lightBorder;
+        border-top: none;
+        border-bottom: none;
+      }
+
+    }
+
+    .toggle-min {
+      border: none;
+    }
+
+    .tile-bar {
+      height: 100%;
+    }
+  }
+
+  .sidebar.trans {
+    bottom: 0;
+    right: 0;
+    height: @sideWidth;
+    width: @sideWidth;
+  }
+
+  a.rotate {
+    position: absolute;
+    height: @sideWidth;
+    bottom: 0;
+    width: @sideWidth;
+    right: 0;
+    z-index: 11;
+  }
+}

@@ -1,4 +1,5 @@
 angular.module('higis.hui.contextCircle', []).directive('contextCircle', function () {
+    'use strict';
     return {
         restrict: 'A',
         replace: true,
@@ -90,7 +91,7 @@ angular.module('higis.hui.contextCircle', []).directive('contextCircle', functio
             shrink();
 
             scope.toggle = function () {
-                scope.expanded ? shrink() : expand();
+                return scope.expanded ? shrink() : expand();
             };
         },
         template: '<div><div ng-class="{expanded:expanded, toggle:true}" ng-click="toggle()"><i ></i></div>' +

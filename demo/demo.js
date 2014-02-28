@@ -1,7 +1,8 @@
 angular.module('app', [
         'higis.hui.tagList',
         'higis.hui.contextCircle',
-        'higis.hui.thumbGrid'
+        'higis.hui.thumbGrid',
+        'higis.hui.tileWall'
     ])
     .controller('DemoCtrl', function ($scope) {
         'use strict';
@@ -53,10 +54,22 @@ angular.module('app', [
             },
             msg: function() {
                 if (selectedGridItem < 0) {
-                    return ''
+                    return '';
                 } else {
                     return selectedGridItem + 1 + ' is expanded';
                 }
             }
-        }
+        };
+
+        $scope.tiles = {
+            // TODO tedious interface, need refactoring
+            tileWalls: {
+                1: {show: true},
+                2: {show: true},
+                3: {show: true},
+                4: {show: true}
+            },
+            beforeShown: function(name) { $scope.tiles.msg = name + ' is showing'; },
+            afterShown: function(name) { $scope.tiles.msg = name + ' is shown'; $scope.$apply(); }
+        };
     });
