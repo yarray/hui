@@ -34,15 +34,19 @@
   -o-transition: none !important;
   transition: none !important;
 }
-.tag-list {
+.maximizable {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-transition: top 0.75s ease, bottom 0.75s ease, left 0.75s ease, right 0.75s ease;
+  -moz-transition: top 0.75s ease, bottom 0.75s ease, left 0.75s ease, right 0.75s ease;
+  -o-transition: top 0.75s ease, bottom 0.75s ease, left 0.75s ease, right 0.75s ease;
+  transition: top 0.75s ease, bottom 0.75s ease, left 0.75s ease, right 0.75s ease;
 }
-.tag-list a {
+.maximizable a {
   text-decoration: none;
 }
-.tag-list select,
-.tag-list input,
-.tag-list textarea {
+.maximizable select,
+.maximizable input,
+.maximizable textarea {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -52,44 +56,44 @@
   -o-transition: border linear 0.2s;
   transition: border linear 0.2s;
 }
-.tag-list input[type="text"],
-.tag-list textarea {
+.maximizable input[type="text"],
+.maximizable textarea {
   border: 1px #dedede solid;
   background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.tag-list input[type="text"]:focus,
-.tag-list textarea:focus {
+.maximizable input[type="text"]:focus,
+.maximizable textarea:focus {
   border: #777777 1px solid;
 }
-.tag-list input,
-.tag-list button,
-.tag-list select,
-.tag-list textarea {
+.maximizable input,
+.maximizable button,
+.maximizable select,
+.maximizable textarea {
   padding: 4px 6px;
   font-size: 14px;
   margin: 0;
 }
-.tag-list label,
-.tag-list input,
-.tag-list button,
-.tag-list select,
-.tag-list textarea {
+.maximizable label,
+.maximizable input,
+.maximizable button,
+.maximizable select,
+.maximizable textarea {
   font-size: 14px;
   font-weight: normal;
   line-height: 20px;
 }
-.tag-list label {
+.maximizable label {
   display: block;
 }
-.tag-list ul {
+.maximizable ul {
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
-.tag-list .well {
+.maximizable .well {
   float: none;
   padding: 20px;
   margin: 0;
@@ -102,41 +106,15 @@
   -moz-border-radius: 0;
   border-radius: 0;
 }
-.tag-list button {
-  margin-right: 5px;
-  margin-top: 5px;
-  background-image: none;
-  background-color: #f2f2f2;
-  padding: 5px 10px;
-  border: 1px #dedede solid;
-  color: #666666;
-}
-.tag-list button:hover {
-  color: #333;
-  border: 1px #c6c6c6 solid;
-}
-.tag-list .selected {
-  height: 140px;
-  padding: 0 5px;
-  background-color: #f2f2f2;
-  border: 1px #dedede solid;
-}
-.tag-list .selected > div {
-  width: 100%;
-  height: 135px;
-}
-.tag-list .selected button {
-  background-color: #fbfbfb;
-}
-.tag-list .all {
-  margin-top: 10px;
-  display: block;
-  width: 98%;
-  height: 58%;
-  overflow-x: auto;
-  overflow-y: auto;
-}
-.tag-list .all button.selected-btn {
-  background-color: #fffdec;
-  border: 1px #c6c6c6 solid;
+.maximizable.max {
+  position: fixed;
+  z-index: 1039;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
 }

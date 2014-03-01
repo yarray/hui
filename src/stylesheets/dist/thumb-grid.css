@@ -3,6 +3,37 @@
   -moz-border-radius: 9999px;
   border-radius: 9999px;
 }
+.close-button {
+  position: relative;
+  cursor: pointer;
+}
+.close-button::before,
+.close-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  height: 1px;
+  background: #888;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.close-button::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.close-button:hover::before,
+.close-button:hover::after {
+  background: #333;
+}
+.no-trans {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
 .og-grid {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   list-style: none;
@@ -77,12 +108,6 @@
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-}
-.og-grid .no-trans {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
 }
 .og-grid > li {
   display: inline-block;

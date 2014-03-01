@@ -111,6 +111,36 @@
   .border-radius(9999px);
 }
 
+.close-button {
+  position: relative;
+  cursor: pointer;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    height: 1px;
+    background: #888;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  &:hover::before, &:hover::after {
+    background: #333;
+  }
+}
+
+.no-trans {
+  .transition(none) !important;
+}
+
 .common() {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -163,9 +193,5 @@
     border: @lightBorder;
     .box-shadow(none);
     .border-radius(0);
-  }
-
-  .no-trans {
-    .transition(none) !important;
   }
 }

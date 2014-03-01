@@ -113,7 +113,7 @@ angular.module('higis.hui.thumbGrid', ['higis.hui.config', 'higis.hui.utils']).d
                 // difficult to determine when to clear the the items after data reloads
                 scope.$on('open', function (e, index) {
                     if (scope.$index === index) {
-                        scope.open();
+                        scope.setCurrent({ handler: handler, element: element });
                     }
                 });
 
@@ -177,13 +177,13 @@ angular.module('higis.hui.thumbGrid', ['higis.hui.config', 'higis.hui.utils']).d
                     }
                 };
 
-                scope.open = function () {
-                    scope.setCurrent({ handler: handler, element: element });
-                };
-
                 scope.thumbClick = function () {
                     scope.grid.select(scope.$index);
-                }
+                };
+
+                scope.close = function () {
+                    scope.grid.select(-1);
+                };
             }
         };
     });
