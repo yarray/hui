@@ -103,6 +103,7 @@
   border-radius: 0;
 }
 .tag-list button {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-right: 5px;
   margin-top: 5px;
   background-image: none;
