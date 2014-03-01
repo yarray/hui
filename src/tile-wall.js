@@ -259,6 +259,7 @@ angular.module('higis.hui.tileWall', ['higis.hui.config', 'higis.hui.utils'])
                                     Utils.onTransitionEnd(comp.tile, function () {
                                         comp.tile.removeClass('min');
                                         scope.afterShown(name);
+                                        scope.$apply();
                                     });
                                 }
                                 comp.tile.css(toPercents(settings[name]));
@@ -306,7 +307,9 @@ angular.module('higis.hui.tileWall', ['higis.hui.config', 'higis.hui.utils'])
 
                     scope.tiles = Tiles.create(tileSettings, 'vertical', 100, 1.5, false, scope.beforeShown);
                     scope.tiles.onPositionsChanged(function (positions) {
-                        layout(positions);
+                        if (!scope.minimized) {
+                            layout(positions);
+                        }
                     }, true);
 
                     scope.minimized = false;
@@ -362,7 +365,6 @@ angular.module('higis.hui.tileWall', ['higis.hui.config', 'higis.hui.utils'])
                                 target.removeClass('trans');
                             });
                         }
-                        scope.minimized = false;
                     };
 
                     scope.toggleMinimizeAll = function () {

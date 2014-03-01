@@ -1,0 +1,10 @@
+<div>
+    <ul class="side-nav">
+        <li ng-repeat="sub in nextNodes">
+            <span ng-click="navTo(sub)" ng-class="{entry: true, 'selected': sub == current}">
+                {{sub[nameField]}}
+                <i class="icon-chevron-right"></i>
+            </span>
+        </li>
+    </ul>
+</div>

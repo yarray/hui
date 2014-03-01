@@ -134,6 +134,20 @@ h1:before {
     width: 400px;
 }
 
+.step-nav {
+    width: 400px;
+    min-height: 170px;
+}
+
+.step-nav-bar {
+    margin-bottom: 15px;
+}
+
+.nav .actions > div {
+    width: 150px;
+}
+
+
 .context {
     display: inline-block;
     /* size and position when expanded */
