@@ -34,10 +34,11 @@ angular.module('higis.hui.utils', []).service('Utils', function () {
         },
         withoutTransition: function (target, action) {
             target.addClass('no-trans');
+            target.css('height'); // tricky: let css reflow
             action();
-            target.css('transition'); // tricky: let css reflow
+            target.css('height'); // tricky: let css reflow
             target.removeClass('no-trans');
-            target.css('transition'); // tricky: let css reflow
+            target.css('height'); // tricky: let css reflow
         }
     };
 });

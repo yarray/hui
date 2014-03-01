@@ -177,13 +177,16 @@ angular.module('higis.hui.thumbGrid', ['higis.hui.config', 'higis.hui.utils']).d
                     }
                 };
 
+                scope.open = function () {
+                };
+
                 scope.thumbClick = function () {
                     scope.grid.select(scope.$index);
                 };
 
                 scope.close = function () {
-                    scope.grid.select(-1);
-                };
+                    scope.grid.ss
+                }
             }
         };
     });
