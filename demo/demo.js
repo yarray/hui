@@ -126,4 +126,6 @@ angular.module('app', [
                 $scope.tiles.msg = name + ' is shown';
             }
         };
+
+
     });

@@ -1,21 +1,78 @@
 body {
-    width: 800px;
-    margin: auto;
-
     /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     font-family: "Times New Roman", serif;
     color: #666666;
+    margin: -20px 0 0;
 }
 
-h1 {
+header {
+    position: relative;
+    height: 350px;
+    padding-top: 100px;
+}
+
+footer {
+    position: relative;
+    height: 300px;
+}
+
+header .title, footer .license {
+    width: 800px;
+    margin: auto;
+}
+
+header .title h1 {
+    font-size: 80px;
+    margin-top: 0;
+    color: #2acfee;
+    display: inline-block;
+}
+
+header .title h2 {
+    margin-top: 0;
+    font-size: 22px;
+    display: inline-block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    margin-left: 30px;
+    opacity: 0.8;
+}
+
+header img, footer img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+footer .license {
+    padding-top: 200px;
+    width: 500px;
+}
+
+footer .license span {
+    display: block;
+    color: #c6c6c6;
+    margin-bottom: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.cases {
+    width: 800px;
+    margin: auto;
+}
+
+.cases h1 {
     font-size: 40px;
     margin-bottom: 40px;
-    color: #000;
     color: rgb(42, 207, 238);
     display: block;
 }
 
-h1:before {
+.cases h1:before {
     content: '';
     display: inline-block;
     left: 0;
@@ -301,8 +358,4 @@ a.rotate {
     left: 10px;
     right: 10px;
     border: #2acfee 1px solid;
-}
-
-.max-case > h1 + div {
-    min-height: 400px;
 }
