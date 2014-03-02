@@ -185,8 +185,8 @@ angular.module('higis.hui.thumbGrid', ['higis.hui.config', 'higis.hui.utils']).d
                 };
 
                 scope.close = function () {
-                    scope.grid.ss
-                }
+                    scope.grid.select(-1);
+                };
             }
         };
     });
