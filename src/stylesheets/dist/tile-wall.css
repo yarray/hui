@@ -35,77 +35,11 @@
   transition: none !important;
 }
 .tile-wall {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-}
-.tile-wall a {
-  text-decoration: none;
-}
-.tile-wall select,
-.tile-wall input,
-.tile-wall textarea {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  outline: 0;
-  -webkit-transition: border linear 0.2s;
-  -moz-transition: border linear 0.2s;
-  -o-transition: border linear 0.2s;
-  transition: border linear 0.2s;
-}
-.tile-wall input[type="text"],
-.tile-wall textarea {
-  border: 1px #dedede solid;
-  background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.tile-wall input[type="text"]:focus,
-.tile-wall textarea:focus {
-  border: #777777 1px solid;
-}
-.tile-wall input,
-.tile-wall button,
-.tile-wall select,
-.tile-wall textarea {
-  padding: 4px 6px;
-  font-size: 14px;
-  margin: 0;
-}
-.tile-wall label,
-.tile-wall input,
-.tile-wall button,
-.tile-wall select,
-.tile-wall textarea {
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 20px;
-}
-.tile-wall label {
-  display: block;
-}
-.tile-wall ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-.tile-wall .well {
-  float: none;
-  padding: 20px;
-  margin: 0;
-  background-color: #f2f2f2;
-  border: 1px #dedede solid;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
 }
 .tile-wall .wall {
   position: absolute;

@@ -332,7 +332,12 @@ angular.module('higis.hui.tileWall', ['higis.hui.config', 'higis.hui.utils'])
                         scope.tiles.toggle(name, insertMode(insert));
                     };
 
+                    scope.rotating = false;
                     scope.rotate = function () {
+                        if (scope.rotating) {
+                            return;
+                        }
+                        scope.rotating = true;
                         var target = $('.sidebar', element);
                         if (scope.tiles.getMode() === 'vertical') {
                             layout({});
@@ -345,6 +350,7 @@ angular.module('higis.hui.tileWall', ['higis.hui.config', 'higis.hui.utils'])
                                 Utils.onTransitionEnd(target, function () {
                                     init();
                                     scope.tiles.setMode('horizon', true, tileSettings);
+                                    scope.rotating = false;
                                 });
 
                                 target.removeClass('trans');
@@ -361,6 +367,7 @@ angular.module('higis.hui.tileWall', ['higis.hui.config', 'higis.hui.utils'])
                                 Utils.onTransitionEnd(target, function () {
                                     init();
                                     scope.tiles.setMode('vertical', false, tileSettings);
+                                    scope.rotating = false;
                                 });
                                 target.removeClass('trans');
                             });
