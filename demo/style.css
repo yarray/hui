@@ -1,0 +1,362 @@
+body {
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-family: "Times New Roman", serif;
+    color: #666666;
+    margin: -20px 0 0;
+}
+
+header {
+    position: relative;
+    height: 350px;
+    padding-top: 100px;
+}
+
+footer {
+    position: relative;
+    height: 300px;
+}
+
+header .title, footer .license {
+    width: 800px;
+    margin: auto;
+}
+
+header .title h1 {
+    font-size: 80px;
+    margin-top: 0;
+    color: #2acfee;
+    display: inline-block;
+}
+
+header .title h2 {
+    margin-top: 0;
+    font-size: 22px;
+    display: inline-block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    margin-left: 30px;
+    opacity: 0.8;
+}
+
+header img, footer img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+footer .license {
+    padding-top: 200px;
+    width: 500px;
+}
+
+footer .license span {
+    display: block;
+    opacity: 0.7;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.cases {
+    width: 800px;
+    margin: auto;
+}
+
+.cases h1 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    color: rgb(42, 207, 238);
+    display: block;
+}
+
+.cases h1:before {
+    content: '';
+    display: inline-block;
+    left: 0;
+    right: 0;
+    top: 25px;
+    bottom: -10px;
+    border: rgb(42, 207, 238) 1px solid;
+    background: #d3f5fb;
+    z-index: -1;
+    width: 40px;
+    height: 40px;
+    margin-top: 3px;
+    margin-right: 20px;
+    vertical-align: top;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dedede;
+}
+
+.cases > div {
+    position: relative;
+}
+
+.cases > div:not(:first-child) {
+    margin-top: 80px;
+}
+
+.cases .actions button {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    min-height: 29px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(102, 102, 102);
+    border: 1px rgb(222, 222, 222) solid;
+    -webkit-transition: border .3s ease;
+    -moz-transition: border .3s ease;
+    -o-transition: border .3s ease;
+    transition: border .3s ease;
+    display: inline-block;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-right: 5px;
+}
+
+.cases .actions button:hover {
+    border: 1px rgb(42, 207, 238) solid;
+}
+
+.cases .actions, .events {
+    margin-top: 30px;
+    padding: 0;
+    min-height: 150px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.cases .actions {
+    border-right: #c6c6c6 1px solid;
+    width: 30%;
+}
+
+.cases .actions:before, .events:before {
+    font-weight: lighter;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #c6c6c6;
+    width: 100%;
+    display: block;
+}
+
+.cases .actions:before {
+    content: 'Actions';
+}
+
+.cases .actions button {
+    margin-left: 0;
+    height: 40px;
+    width: 70px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cases .actions button.small {
+    width: 40px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.cases .events {
+    margin-left: 50px;
+}
+
+.cases .events:before {
+    content: 'Events';
+}
+
+.cases .events span {
+    padding-left: 2px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* controls */
+.tag-list {
+    width: 400px;
+}
+
+.step-nav {
+    width: 400px;
+    min-height: 170px;
+}
+
+.step-nav-bar {
+    margin-bottom: 15px;
+}
+
+.nav .actions > div {
+    width: 150px;
+}
+
+.context {
+    display: inline-block;
+    /* size and position when expanded */
+    width: 300px;
+    height: 300px;
+    margin-top: -50px;
+    margin-left: 0;
+}
+
+.context-container {
+    width: 350px;
+    height: 250px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.context .toggle.expanded {
+    background-color: #fffdec;
+    border: #c6c6c6 1px solid;
+}
+
+.context .action {
+    width: 50px;
+    height: 50px;
+
+    border: rgb(42, 207, 238) 1px solid;
+}
+
+.context .small {
+    width: 25px;
+    height: 25px;
+}
+
+.container {
+    position: relative;
+    border-top: #c6c6c6 1px solid;
+    border-bottom: #c6c6c6 1px solid;
+    overflow-y: auto;
+}
+
+.container:not(:hover)::-webkit-scrollbar-thumb {
+    background: #f2f2f2;
+}
+
+.grid .container {
+    height: 600px;
+    width: 680px;
+    /* must be relative or absolute */
+    position: relative;
+    padding-left: 10px;
+}
+
+.grid-details span {
+    margin-left: 260px;
+    margin-top: 90px;
+    color: #999999;
+    display: block;
+}
+
+.grid .actions > div {
+    width: 150px;
+}
+
+.tiles .container {
+    height: 500px;
+    overflow: hidden;
+    border: #c6c6c6 1px solid;
+    background-color: #f2f2f2;
+}
+
+.tile-wall .wall > div[name='1'] {
+    height: 40%;
+    width: 40%;
+}
+
+.tile-wall .wall > div[name='1'],
+.tile-wall .wall > div[name='3'] {
+    -webkit-box-shadow: 0 0 0 1px rgb(42, 207, 238) inset;
+    -moz-box-shadow: 0 0 0 1px rgb(42, 207, 238) inset;
+    box-shadow: 0 0 0 1px rgb(42, 207, 238) inset;
+}
+
+.tile-wall .wall > div[name='2'] {
+    height: 60%;
+    width: 60%;
+}
+
+.tile-wall .wall > div[name='2'],
+.tile-wall .wall > div[name='4'] {
+    -webkit-box-shadow: 0 0 0 1px #e88c8c inset;
+    -moz-box-shadow: 0 0 0 1px #e88c8c inset;
+    box-shadow: 0 0 0 1px #e88c8c inset
+}
+
+div[name='3'] {
+    height: 80%;
+    width: 30%;
+}
+
+div[name='4'] {
+    height: 20%;
+    width: 80%;
+}
+
+a[name='1']:before,
+a[name='2']:before,
+a[name='3']:before,
+a[name='4']:before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    bottom: 15px;
+    right: 15px;
+    width: 28px;
+    height: 28px;
+}
+
+a[name='1']:before,
+a[name='3']:before {
+    border: rgb(42, 207, 238) 1px solid;
+}
+
+a[name='2']:before,
+a[name='4']:before {
+    border: #e88c8c 1px solid;
+}
+
+a.toggle-min {
+    background: url('images/expand.png') no-repeat 15px 15px;
+}
+
+a.toggle-min.minimize {
+    background: url('images/shrink.png') 15px 15px no-repeat;;
+}
+
+a.rotate {
+    background: url('images/rotate.png') 15px 15px no-repeat;;
+}
+
+.tiles .actions button {
+    position: relative;
+    margin-top: 30px;
+}
+
+.tiles .actions button.insert:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    border: #2acfee 1px solid;
+}

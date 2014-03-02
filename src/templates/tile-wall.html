@@ -1,0 +1,16 @@
+<div>
+    <div class="wall" ng-transclude></div>
+    <div class="sidebar">
+        <div class="tile-bar">
+            <a tile-button ng-repeat="obj in names" name="{{obj.name}}" ng-class="linkClass(obj.name)" href=""
+               data-placement="left"
+               ng-show="obj.show"
+               title="{{obj.title}}"
+               ng-click="toggleTile(obj.name, $event.shiftKey)"></a>
+        </div>
+        <a href="" ng-class="{minimize: !minimized, 'toggle-min': true}" title="Toggle minimize all"
+           ng-click="toggleMinimizeAll()"></a>
+    </div>
+    <a href="" class="rotate" ng-click="rotate()">
+    </a>
+</div>

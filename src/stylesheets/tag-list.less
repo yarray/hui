@@ -1,0 +1,51 @@
+@import "_variables";
+@import "_mixin";
+
+.tag-list {
+  .common();
+
+  button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-right: 5px;
+    margin-top: 5px;
+    background-image: none;
+    background-color: @lightBackColor;
+    padding: 5px 10px;
+    border: @lightBorder;
+    color: @textColor;
+
+    &:hover {
+      color: #333;
+      border: @lightEmphasisBorder;
+    }
+  }
+
+  .selected {
+    height: 140px;
+    padding: 0 5px;
+    background-color: @lightBackColor;
+    border: @lightBorder;
+    > div {
+      width: 100%;
+      height: 135px;
+    }
+
+    button {
+      background-color: @foreColor;
+    }
+  }
+
+  .all {
+    margin-top: 10px;
+    display: block;
+    width: 98%;
+    height: 58%;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+}
+
+.tag-list .all button.selected-btn {
+  background-color: @contrastSecondColor;
+  border: @lightEmphasisBorder;
+}

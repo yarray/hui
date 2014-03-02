@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Basic ui components for HiGIS (high performance GIS) by NUDT, China</title>
+    <link rel="stylesheet" href="../src/stylesheets/dist/button.css"/>
+    <link rel="stylesheet" href="../src/stylesheets/dist/tag-list.css"/>
+    <link rel="stylesheet" href="../src/stylesheets/dist/step-nav.css"/>
+    <link rel="stylesheet" href="../src/stylesheets/dist/context-circle.css"/>
+    <link rel="stylesheet" href="../src/stylesheets/dist/thumb-grid.css"/>
+    <link rel="stylesheet" href="../src/stylesheets/dist/tile-wall.css"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body ng-controller="DemoCtrl">
+<header>
+    <div class="title">
+        <h1>HUI</h1>
+
+        <h2>UI components from higis</h2>
+    </div>
+    <img src="images/header.svg"/>
+</header>
+
+<div class="cases">
+    <div>
+        <h1>Tag List</h1>
+
+        <div tag-list tag-selected="tags.selected" tags="tags.data"
+             tag-clear="tags.clear" class="tag-list"></div>
+
+        <div class="actions">
+            <button ng-click="tags.clear()">clear</button>
+        </div>
+
+        <div class="events">
+            <span>{{tags.msg}}</span>
+        </div>
+    </div>
+
+    <div class="nav">
+        <h1>Step Navigator</h1>
+
+        <div class="step-nav">
+            <div step-nav-bar class="step-nav-bar" name-field="'name'" path="nav.path"></div>
+            <div step-nav name-field="'name'" get-children="nav.getChildren"
+                 path="nav.path" next-nodes="nav.nextNodes"></div>
+        </div>
+
+        <div class="actions">
+            <div>
+                <button ng-repeat="t in ['1', '2', '3', '1.1', '1.2', '2.1']" ng-click="nav.go(t)" class="small">{{t}}
+                </button>
+            </div>
+        </div>
+
+        <div class="events">
+            <div><span>{{nav.pathMsg}}</span></div>
+            <div><span>{{nav.nextMsg}}</span></div>
+        </div>
+    </div>
+
+    <div>
+        <h1>Context Circle</h1>
+
+        <div class="context-container">
+            <div context-circle class="context">
+                <div class="action"></div>
+                <div class="action"></div>
+                <div class="action"></div>
+            </div>
+        </div>
+        <div class="context-container">
+            <div context-circle class="context">
+                <div class="small action"></div>
+                <div class="small action"></div>
+                <div class="small action"></div>
+                <div class="small action"></div>
+                <div class="small action"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <h1>Thumbnail Grid</h1>
+
+        <div class="container">
+            <div class="og-grid" thumb-grid partial="'partials/grid-details.html'" grid="grid.model">
+            </div>
+        </div>
+        <div class="actions">
+            <div>
+                <button ng-repeat="(i, obj) in grid.model.data()" class="small" ng-click="grid.model.select(i)">
+                    {{i+1}}
+                </button>
+            </div>
+        </div>
+
+        <div class="events">
+            <span>{{grid.msg()}}</span>
+        </div>
+    </div>
+
+    <div class="tiles">
+        <h1>Tile Wall</h1>
+
+        <div class="container">
+            <div class="tile-wall" tile-wall tiles="tiles.tiles" after-shown="tiles.afterShown"
+                 before-shown="tiles.beforeShown"
+                 tile-walls="tiles.tileWalls">
+                <div name="1">
+                    <div class="box"></div>
+                </div>
+                <div name="2"></div>
+                <div name="3"></div>
+                <div name="4"></div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <div>
+                <button ng-click="tiles.insertMode = !tiles.insertMode"
+                        ng-class="{insert: tiles.insertMode, small: true}"></button>
+            </div>
+            <button ng-repeat="name in ['1', '2', '3', '4']"
+                    ng-click="tiles.tiles.toggle(name, tiles.insertMode)" class="small">{{name}}
+            </button>
+            <button ng-click="tiles.tiles.toggleMinimizeAll()">toggle</button>
+            <button ng-click="tiles.tiles.rotate()" style="margin-left: -4px">rotate</button>
+        </div>
+
+        <div class="events">
+            <span>{{tiles.msg}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="index">
+    <div class="step-nav">
+        <div step-nav name-field="'name'" get-children="index.getChildren"
+             path="index.path" next-nodes="index.nextNodes"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="license">
+        <span>Author: Yang Anran (anran.yang.china@gmail.com) from the higis team</span>
+        <span>All code is licensed under the MIT License.</span>
+        <span>This web page is licensed under the Creative Common 3 Share-Alike License.</span>
+    </div>
+
+    <img src="images/footer.svg"/>
+</footer>
+
+<script src="lib/jquery.js" type="text/javascript"></script>
+<script src="lib/angular.min.js" type="text/javascript"></script>
+<script src="lib/underscore-min.js" type="text/javascript"></script>
+<script src="demo.js" type="text/javascript"></script>
+<script src="../src/config.js" type="text/javascript"></script>
+<script src="../src/utils.js" type="text/javascript"></script>
+<script src="../src/tag-list.js" type="text/javascript"></script>
+<script src="../src/step-nav.js" type="text/javascript"></script>
+<script src="../src/context-circle.js" type="text/javascript"></script>
+<script src="../src/thumb-grid.js" type="text/javascript"></script>
+<script src="../src/tile-wall.js" type="text/javascript"></script>
+</body>
+</html>

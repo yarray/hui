@@ -1,0 +1,90 @@
+.circle {
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  border-radius: 9999px;
+}
+.close-button {
+  position: relative;
+  cursor: pointer;
+}
+.close-button::before,
+.close-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  height: 1px;
+  background: #888;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.close-button::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.close-button:hover::before,
+.close-button:hover::after {
+  background: #333;
+}
+.no-trans {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+.context {
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  border-radius: 9999px;
+  -webkit-transition: left 10s ease, top 0.3s ease, width 0.3s ease, height 0.3s ease, margin-left 0.3s ease, margin-top 0.3s ease;
+  -moz-transition: left 10s ease, top 0.3s ease, width 0.3s ease, height 0.3s ease, margin-left 0.3s ease, margin-top 0.3s ease;
+  -o-transition: left 10s ease, top 0.3s ease, width 0.3s ease, height 0.3s ease, margin-left 0.3s ease, margin-top 0.3s ease;
+  transition: left 10s ease, top 0.3s ease, width 0.3s ease, height 0.3s ease, margin-left 0.3s ease, margin-top 0.3s ease;
+  position: relative;
+  background-color: transparent;
+}
+.context > :first-child {
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  border-radius: 9999px;
+  position: absolute;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-transition: left 0.3s ease, top 0.3s ease, background-color 0.3s ease;
+  -moz-transition: left 0.3s ease, top 0.3s ease, background-color 0.3s ease;
+  -o-transition: left 0.3s ease, top 0.3s ease, background-color 0.3s ease;
+  transition: left 0.3s ease, top 0.3s ease, background-color 0.3s ease;
+}
+.context > :last-child {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.context > :last-child > div {
+  position: absolute;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+.context > :last-child > div.min {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.context > :first-child {
+  width: 50px;
+  height: 50px;
+  border: 1px #dedede solid;
+  background: #f2f2f2;
+}

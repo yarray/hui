@@ -1,0 +1,197 @@
+@import "_variables";
+
+// Borrow from Twitter/bootstrap
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+.transition-delay(@transition-delay) {
+  -webkit-transition-delay: @transition-delay;
+  -moz-transition-delay: @transition-delay;
+  -o-transition-delay: @transition-delay;
+  transition-delay: @transition-delay;
+}
+
+.user-select(@select) {
+  -webkit-user-select: @select;
+  -moz-user-select: @select;
+  -ms-user-select: @select;
+  -o-user-select: @select;
+  user-select: @select;
+}
+
+.scale(@ratio) {
+  -webkit-transform: scale(@ratio);
+  -moz-transform: scale(@ratio);
+  -ms-transform: scale(@ratio);
+  -o-transform: scale(@ratio);
+  transform: scale(@ratio);
+}
+
+.skew(@x, @y) {
+  -webkit-transform: skew(@x, @y);
+  -moz-transform: skew(@x, @y);
+  -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twitter/bootstrap/issues/4885
+  -o-transform: skew(@x, @y);
+  transform: skew(@x, @y);
+  -webkit-backface-visibility: hidden; // See https://github.com/twitter/bootstrap/issues/5319
+}
+
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
+}
+
+.icon-switch() {
+  opacity: .5;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// input whose position is stable whether it is shown or hidden.
+.stable-input(@container-height, @border:1px) {
+  margin: (@container-height - 26px) / 2 0 (@container-height - 26px) / 2 (-2) * @border;
+}
+
+.block-border() {
+  border: @lightBorder;
+}
+
+.operation-panel(@radius: 6px) {
+  background: @contrastSecondColor;
+  padding: 15px 0;
+  .block-border();
+}
+
+.info-panel(@radius: 6px) {
+  @fore-color: #ffffff;
+
+  background: @fore-color;
+  .block-border();
+}
+
+.selected() {
+  border: 3px solid @mainColor;
+}
+
+.hoverable(@color: @mainColor, @hoverColor: @secondColor) {
+  .transition(background-color 0.2s ease);
+  background-color: @color;
+
+  &:hover {
+    background-color: @hoverColor;
+  }
+}
+
+.transform-origin(@origin) {
+  -webkit-transform-origin: @origin;
+  -moz-transform-origin: @origin;
+  transform-origin: @origin;
+}
+
+.circle {
+  .border-radius(9999px);
+}
+
+.close-button {
+  position: relative;
+  cursor: pointer;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    height: 1px;
+    background: #888;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  &:hover::before, &:hover::after {
+    background: #333;
+  }
+}
+
+.no-trans {
+  .transition(none) !important;
+}
+
+.common() {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  a {
+    text-decoration: none;
+  }
+
+  select, input, textarea {
+    .border-radius(0);
+    outline: 0;
+    .transition(border linear 0.2s);
+  }
+
+  input[type="text"], textarea {
+    border: @lightBorder;
+    background-color: transparent;
+    .box-shadow(none);
+    &:focus {
+      border: #777777 1px solid;
+    }
+  }
+
+  input, button, select, textarea {
+    padding: 4px 6px;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  label, input, button, select, textarea {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+  }
+
+  label {
+    display: block;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .well {
+    float: none;
+    padding: @imageGutter;
+    margin: 0;
+    background-color: @lightBackColor;
+    border: @lightBorder;
+    .box-shadow(none);
+    .border-radius(0);
+  }
+}

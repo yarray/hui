@@ -1,0 +1,8 @@
+<div>
+    <ul>
+        <li ng-repeat="step in path" ng-click="backToLevel($index)">
+            <span>{{step[nameField] | locale}}</span>
+        </li>
+    </ul>
+    <span ng-transclude></span>
+</div>

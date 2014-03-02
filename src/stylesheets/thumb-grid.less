@@ -1,0 +1,166 @@
+@import "_variables";
+@import "_mixin";
+
+.og-grid {
+  .common();
+
+  list-style: none;
+  padding-left: 0;
+  display: block;
+  position: relative;
+
+  > li {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    vertical-align: top;
+    .transition(margin-bottom 0.5s);
+  }
+
+  .well {
+    width: 150px;
+    padding-bottom: 0;
+    position: relative;
+
+    .tagImg {
+      width: 30px;
+      height: 20px;
+      margin-top: -100px;
+    }
+
+    >label {
+      line-height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      text-align: center;
+      color: @textColor;
+      padding-left: @imageGutter;
+      padding-right: @imageGutter;
+      margin-top: @imageGutter;
+      margin-left: -@imageGutter;
+      background-color: @foreColor;
+      border-top: @lightBorder;
+    }
+
+    &.selected:before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: -10px;
+      bottom: -10px;
+      left: -10px;
+      right: -10px;
+      border: @mainColor 1px solid;
+    }
+  }
+
+  li>a, li>a img {
+    border: none;
+    outline: none;
+    display: inline-block;
+    position: relative;
+  }
+
+  li.og-expanded>a::after {
+    top: auto;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: @lightBorderColor;
+    border-width: 15px;
+    left: 50%;
+    margin: -15px 0 0 -15px;
+  }
+
+  /* General Demo Style */
+  /*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);*/
+
+  /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+  .clearfix {
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+    *zoom: 1;
+  }
+
+  .container {
+    width: 100%;
+    position: relative;
+
+    > header {
+      width: 90%;
+      max-width: 1240px;
+      margin: 0 auto;
+      position: relative;
+      //    padding: 0 30px 50px 30px;
+      padding: 60px 30px 50px;
+      text-align: center;
+
+      h1 {
+        font-size: 34px;
+        line-height: 38px;
+        margin: 0 auto;
+        font-weight: 700;
+        color: #333;
+
+        span {
+          display: block;
+          font-size: 20px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  .main > p {
+    text-align: center;
+    padding: 50px 20px;
+  }
+}
+
+.og-expander {
+  position: absolute;
+  background: @lightBackColor;
+  top: auto;
+  left: 0;
+  right: 12px;
+  margin: 20px 0 15px 0;
+  text-align: left;
+  height: 0;
+  overflow: hidden;
+  .box-shadow(@lightInnerBorder);
+  .transition(height 0.5s);
+}
+
+.og-expander-inner {
+  padding: 0 0 30px 0;
+  height: 100%;
+
+  .close-button {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+  }
+}
+
+.og-preview {
+  text-align: center;
+  width: 50%;
+  float: left;
+  img {
+    display: inline-block;
+  }
+}

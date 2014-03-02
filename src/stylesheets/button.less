@@ -1,0 +1,32 @@
+@import "_variables";
+@import "_mixin";
+
+.h-button() {
+  .box-shadow(none);
+  border: none;
+  min-height: @controlHeight + 2 * @controlGutter;
+}
+
+.h-button-main {
+  .h-button();
+  color: @foreColor;
+  .hoverable();
+}
+
+.h-button-misc {
+  .h-button();
+  color: @textColor;
+  .hoverable(@foreColor, @contrastSecondColor);
+}
+
+.h-button-trans {
+  .h-button();
+  background-color: transparent;
+  color: @textColor;
+  border: @lightBorder;
+  .transition(border 0.3s ease);
+  &:hover {
+    color: #000000;
+    border: @lightEmphasisBorder;
+  }
+}
